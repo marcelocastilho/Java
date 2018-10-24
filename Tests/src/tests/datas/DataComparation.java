@@ -6,7 +6,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.Period;
-import java.time.temporal.TemporalUnit;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class DataComparation {
 	
@@ -35,5 +36,21 @@ public class DataComparation {
 		
 		System.out.println("Duração em milisegundos: " + duracaoEmMilissegundos);
 		
+		int year = 2059;
+		int month = 12;
+		int day = 25;
+		
+		LocalDate date = LocalDate.of(year, month, day); 
+		System.out.println("Local Date: " + date.getDayOfWeek());
+				
+		Calendar calendar = new GregorianCalendar(year, month-1, day) ;
+	
+		String[] strDays = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thusday","Friday", "Saturday" };		
+		System.out.println("Year: " + calendar.get(Calendar.YEAR));
+		System.out.println("Month: " + calendar.get(Calendar.MONTH));
+		System.out.println("Day of Month: " + calendar.get(Calendar.DAY_OF_MONTH));
+		System.out.println("Day of week: " + calendar.get(Calendar.DAY_OF_WEEK));
+		
+		System.out.println("Calendar: " + strDays[calendar.get(Calendar.DAY_OF_WEEK)-1].toUpperCase());
 	}
 }
