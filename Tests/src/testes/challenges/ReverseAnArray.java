@@ -13,25 +13,26 @@ public class ReverseAnArray {
 
 	public static void main(String a[]) throws Exception
 	{
-		int[] arr = new int[10];
 		Scanner scan= new Scanner(System.in);
-		for(int i =0;i<10;i++)
-		{
-			System.out.println("Enter the array elements["+i+"]:");
-			arr[i]=scan.nextInt();
+
+		System.out.println("Enter the array elements seppareted by blank spaces, in the first one the array lenght Ex. 3 1 3 4 5");
+		
+		int lenght = scan.nextInt();
+		
+		int[] arr = new int[lenght];
+		
+		for(int i = 0; i < lenght; i++){		
+			arr[i] = scan.nextInt();			
 		}
 		
-		List aaa = new ArrayList<Integer>();
-		
-		for (int i = 0; i < arr.length; i++) {
-			aaa.add(arr[i]);
-		}
-		
-		
-		//write your logic here
+		//Logic here
 		List<Integer> arrayList = Arrays.stream(arr).boxed().collect(Collectors.toList());
 
 		Collections.reverse(arrayList);
-		arrayList.forEach(s -> System.out.print(s));
+				
+		int[] response =  arrayList.stream().mapToInt(i -> i).toArray();
+		
+		System.out.println(Arrays.toString(response));
+		
 	}
 }
